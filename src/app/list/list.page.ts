@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
+
   private icons = [
     'flask',
     'wifi',
@@ -19,6 +19,16 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
+  componentes: Componente[] = [
+    {
+      redirect: '/home',
+      name: 'Agaete'
+    },
+    {
+      redirect: '/prueba',
+      name: 'Aguimes'
+    }
+  ] ;
   public items: Array<{ title: string; note: string; icon: string }> = [];
   constructor() {
     for (let i = 1; i < 11; i++) {
@@ -37,3 +47,9 @@ export class ListPage implements OnInit {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
 }
+
+interface Componente {
+  redirect: string;
+  name: string;
+}
+
