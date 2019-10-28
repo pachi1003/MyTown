@@ -21,4 +21,31 @@
   <ion-button expand="full" color="primary" (click)="inputAlertConfirm()">
     Cambiar titulo
   </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let i of data" (click)="onClick(i)">
+      <ion-label>{{i.name}}</ion-label>
+      <ion-checkbox [(ngModel)]="i.selected" [color]="i.name"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label>Fecha de nacimiento:</ion-label>
+    <ion-datetime display-format="YYYY MMMM DD"
+    [ngModel]="fecha.toISOString()"
+    [pickerOptions]="customPickerOptions"
+    (ionChange)="cambioFecha($event)">
+    </ion-datetime>
+  </ion-item>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button color="instagram"><ion-icon name="logo-instagram" ></ion-icon></ion-fab-button>
+      <ion-fab-button color="secondary"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button color="danger"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

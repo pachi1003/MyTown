@@ -8,11 +8,47 @@ import {AlertController} from '@ionic/angular';
 })
 export class PruebaPage implements OnInit {
   titulo: string;
+  data = [
+      {
+        name: 'primary',
+        selected: false
+      },
+    {
+      name: 'secondary',
+      selected: false
+    },
+    {
+      name: 'success',
+      selected: true
+    }
+      ];
+  fecha: Date = new Date();
+  customPickerOptions;
 
   constructor(public alertController: AlertController) {}
   ngOnInit() {
+    this.customPickerOptions = {
+      buttons: [{
+        text: 'Guardar',
+        handler: ( evento ) => {
+          console.log('Guardado!');
+          console.log(evento);
+        }
+        }, {
+        text: 'Cancelar',
+        handler: () => {
+          console.log('Cancelado.');
+        }
+      }]
+    };
   }
-
+  onClick( check ) {
+    console.log( check );
+  }
+  cambioFecha(event) {
+    console.log('ionChange', event);
+    console.log('Date', new Date(event.detail.value));
+  }
   async inputAlertConfirm() {
     const input = await this.alertController.create({
       header: 'Confirm!',

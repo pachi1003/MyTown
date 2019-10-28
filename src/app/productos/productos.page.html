@@ -1,0 +1,45 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6"
+      *ngFor="let i of data; let c=index">
+        <ion-card>
+          <ion-img src="/assets/shapes.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>card {{c+1}}</ion-card-title>
+            <ion-card-content>
+              Lorem ipsum dolor sit amet consectetur adipiscing elit rhoncus gravida, leo fermentum curae facilisis maecenas sociis aptent faucibus vestibulum, risus id magna est cras pretium imperdiet ultricies. Ultricies nisi velit sociis elementum condimentum fermentum urna lobortis, tristique accumsan felis sed nisl dictumst semper rutrum neque, ut a taciti viverra purus primis blandit.
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+            loadingSpinner="crescent"
+            loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary"><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+      <ion-fab-button color="instagram"><ion-icon name="logo-instagram" ></ion-icon></ion-fab-button>
+      <ion-fab-button color="secondary"><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      <ion-fab-button color="danger"><ion-icon name="logo-youtube"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -25,6 +25,11 @@ export class AppComponent {
       title: 'pruebas',
       url: '/prueba',
       icon: 'code-working'
+    },
+    {
+      title: 'productos',
+      url: '/productos',
+      icon: 'cart'
     }
   ];
 
