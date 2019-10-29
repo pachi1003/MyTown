@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import {MenuController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -25,15 +26,31 @@ export class AppComponent {
       title: 'pruebas',
       url: '/prueba',
       icon: 'code-working'
+    },
+    {
+      title: 'productos',
+      url: '/productos',
+      icon: 'cart'
+    },
+    {
+      title: 'logear',
+      url: '/logear',
+      icon: 'log-in'
     }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    public authservice: AuthService,
+    private menu: MenuController
   ) {
     this.initializeApp();
+  }
+  Onlogout() {
+    this.authservice.logout();
+    this.menu.close();
   }
 
   initializeApp() {
