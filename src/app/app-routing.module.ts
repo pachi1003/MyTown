@@ -15,7 +15,9 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
   },
-  { path: 'prueba', loadChildren: './prueba/prueba.module#PruebaPageModule' },  { path: 'productos', loadChildren: './productos/productos.module#ProductosPageModule' }
+  { path: 'prueba', loadChildren: './prueba/prueba.module#PruebaPageModule' },  { path: 'productos', loadChildren: './productos/productos.module#ProductosPageModule' },
+  { path: 'logear', loadChildren: './logear/logear.module#LogearPageModule' },
+  { path: 'registrar', loadChildren: './registrar/registrar.module#RegistrarPageModule' }
 
 ];
 

@@ -30,6 +30,11 @@ export class AppComponent {
       title: 'productos',
       url: '/productos',
       icon: 'cart'
+    },
+    {
+      title: 'logear',
+      url: '/logear',
+      icon: 'log-in'
     }
   ];
 
