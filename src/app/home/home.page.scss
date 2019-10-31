@@ -1,4 +1,54 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+:root {
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+}
+
+ion-slide {
+  display: block;
+}
+
+ion-content{
+  --overflow: hidden;
+}
+
+.slide-img-padding{
+  padding: 40px;
+}
+
+h3{
+  font-size: 25px;
+  font-weight: lighter;
+  margin-top: 40%;
+}
+
+p{
+  font-weight: lighter;
+}
+
+img{
+  max-height: 400px;
+}
+
+ion-button{
+  margin-bottom: 60px;
+}
+
+/* MEDIA QUERYS */
+
+@media screen and (min-height: 800px){
+  h3{
+    margin-top: 50%;
+  }
+}
+
+@media screen and (max-height: 775px){
+  img{
+    width: 70%;
+  }
+}
+
+@media screen and (max-height: 580px){
+  h3{
+    margin-top: 25%;
+  }
 }
