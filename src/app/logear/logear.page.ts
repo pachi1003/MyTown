@@ -11,7 +11,6 @@ import {ToastController} from '@ionic/angular';
   styleUrls: ['./logear.page.scss'],
 })
 export class LogearPage implements OnInit {
-  toastUser: any;
   formulario: FormGroup;
   usuario = {
     email: '',

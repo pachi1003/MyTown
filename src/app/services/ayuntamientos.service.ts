@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import { map} from 'rxjs/operators';
+import { Tema } from '../models/tema';
 
 export interface Ayuntamiento {
   name: string;

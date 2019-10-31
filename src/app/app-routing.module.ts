@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'prueba', loadChildren: './prueba/prueba.module#PruebaPageModule' },
   { path: 'productos', loadChildren: './productos/productos.module#ProductosPageModule'}, //canActivate: [AuthGuard]//
   { path: 'logear', loadChildren: './logear/logear.module#LogearPageModule', canActivate: [NologinGuard] },
-  { path: 'registrar', loadChildren: './registrar/registrar.module#RegistrarPageModule', canActivate: [NologinGuard] }
+  { path: 'registrar', loadChildren: './registrar/registrar.module#RegistrarPageModule', canActivate: [NologinGuard] },  { path: 'temas', loadChildren: './temas/temas.module#TemasPageModule' }
+
 
 ];
 

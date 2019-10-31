@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ayuntamiento}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+            loadingSpinner="crescent"
+            loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
