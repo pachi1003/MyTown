@@ -35,9 +35,9 @@ ion-button{
 
 /* MEDIA QUERYS */
 
-@media screen and (min-height: 800px){
+@media screen and (min-height: 820px){
   h3{
-    margin-top: 50%;
+    margin-top: 60%;
   }
 }
 
@@ -50,5 +50,32 @@ ion-button{
 @media screen and (max-height: 580px){
   h3{
     margin-top: 25%;
+  }
+}
+
+@media screen and (min-width: 500px){
+  img{
+    width: 45%;
+  }
+  h3{
+    margin-top: 40%;
+  }
+}
+
+@media screen and (min-width: 400px){
+  h3{
+    margin-top: 30%;
+  }
+}
+
+@media screen and (min-width: 800px){
+  h3{
+    margin-top: 20%;
+  }
+}
+
+@media screen and (min-width: 900px){
+  h3{
+    margin-top: 10%;
   }
 }
