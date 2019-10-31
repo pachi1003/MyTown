@@ -32,7 +32,10 @@
                    required></ion-input>
       </ion-item>
     </ion-list>
-    <ion-button color="primary" expand="full" (click)="onSubmitLogin()" [disabled]="formulario.invalid">Entrar</ion-button>
+    <ion-button color="primary" expand="block" (click)="onSubmitLogin()" [disabled]="formulario.invalid">Entrar</ion-button>
     <!--<ion-button expand="full" color="primary" type="submit" [disabled]="formulario.invalid"></ion-button>-->
   </form>
+  <br>
+  <p class="ion-text-center" routerLink="/registrar">Regístrate si no tienes cuenta</p>
+
 </ion-content>
