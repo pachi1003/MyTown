@@ -8,8 +8,9 @@ import { map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor( private AFauth: AngularFireAuth, private router: Router, private db: AngularFirestore) { }
+  userId: string;
+  constructor( private AFauth: AngularFireAuth, private router: Router, private db: AngularFirestore) {
+  }
   login(email: string, password: string) {
 
     return new Promise((resolve, rejected) => {
