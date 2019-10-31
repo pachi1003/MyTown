@@ -1,9 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>registrar</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title class="ion-text-center">Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <form [formGroup]="registro"> <!--#formulario=*NgForm (ngSubmit)="onSubmitLogin()"-->
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="name"
+                   type="text"
+                   name="name"
+                   pattern=".{3,}"
+                   [(ngModel)]="name"
+                   required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input formControlName="email"
+                   type="email"
+                   name="email"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                   [(ngModel)]="email"
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password"
+                   type="password"
+                   name="password"
+                   pattern=".{6,}"
+                   [(ngModel)]="password"
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Repetir contraseña</ion-label>
+        <ion-input formControlName="repitPassword"
+                   type="password"
+                   name="password"
+                   pattern="{{password}}"
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha de nacimiento</ion-label>
+        <ion-datetime formControlName="date"
+                      type="date"
+                      name="date"
+                      display-format="YYYY MMMM DD"
+                      required
+                      [ngModel]="date.toISOString()"
+                      [pickerOptions]="customPickerOptions"
+                      (ionChange)="cambioFecha($event)">
+        </ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Municipios</ion-label>
+        <ion-select formControlName="town"
+                    name="town"
+                    required
+                    [(ngModel)]="ayuntamiento">
+          <ion-select-option *ngFor="let towns of municipios">{{towns.nombre}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-button color="primary" expand="block" (click)="OnSubmitRegister()" [disabled]="registro.invalid">Registrarse</ion-button>
+    <!--<ion-button expand="full" color="primary" type="submit" [disabled]="formulario.invalid"></ion-button>-->
+  </form>
+  <br>
+  <p class="ion-text-center" routerLink="/logear">Ya tengo cuenta</p>
+
 
 </ion-content>

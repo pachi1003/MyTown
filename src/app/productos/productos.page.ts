@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonInfiniteScroll} from '@ionic/angular';
-import {AuthService} from '../services/auth.service';
+import {AngularFireAuth} from '@angular/fire/auth';
+
+
 
 @Component({
     selector: 'app-productos',
@@ -10,12 +12,9 @@ import {AuthService} from '../services/auth.service';
 export class ProductosPage implements OnInit {
     @ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll: IonInfiniteScroll;
     data: any[] = new Array(12);
-    constructor(public authservice: AuthService) {
+    constructor() {
     }
     ngOnInit() {
-    }
-    Onlogout() {
-        this.authservice.logout();
     }
     loadData(event) {
         console.log('cargando datos...');
