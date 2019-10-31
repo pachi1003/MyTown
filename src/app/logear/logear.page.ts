@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ToastController} from '@ionic/angular';
 
 
 @Component({
@@ -10,12 +11,16 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./logear.page.scss'],
 })
 export class LogearPage implements OnInit {
+  toastUser: any;
   formulario: FormGroup;
   usuario = {
     email: '',
     password: ''
   };
-  constructor( private authService: AuthService, public formBuilder: FormBuilder, public router: Router) {
+  constructor( private authService: AuthService,
+               public formBuilder: FormBuilder,
+               public router: Router,
+               public toastController: ToastController) {
     this.formulario = this.createMyForm();
   }
 
@@ -30,7 +35,15 @@ export class LogearPage implements OnInit {
   onSubmitLogin() {
     console.log(this.usuario);
     this.authService.login( this.usuario.email, this.usuario.password).then( res => {
+      this.presentToast();
       this.router.navigate(['/productos']);
     }).catch(err => alert('la contraseña es incorrecta o el usuario no existe'));
+  }
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: `Bienvenido a MyTown ${this.usuario.email}`,
+      duration: 3000
+    });
+    toast.present();
   }
 }
