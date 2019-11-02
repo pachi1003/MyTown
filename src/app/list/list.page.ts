@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AyuntamientosService} from '../services/ayuntamientos.service';
 
 @Component({
   selector: 'app-list',
@@ -6,50 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  componentes: Componente[] = [
-    {
-      redirect: '/home',
-      name: 'Agaete'
-    },
-    {
-      redirect: '/prueba',
-      name: 'Aguimes'
-    }
-  ] ;
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  municipios: any;
+  constructor(public servicioAyuntamiento: AyuntamientosService) {
   }
 
   ngOnInit() {
+    this.servicioAyuntamiento.getTowns().subscribe( ayuntamientos => {
+      this.municipios = ayuntamientos;
+      console.log(ayuntamientos);
+    });
   }
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);
   // }
-}
-
-interface Componente {
-  redirect: string;
-  name: string;
 }
 

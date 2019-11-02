@@ -35,7 +35,7 @@ export class LogearPage implements OnInit {
     console.log(this.usuario);
     this.authService.login( this.usuario.email, this.usuario.password).then( res => {
       this.presentToast();
-      this.router.navigate(['/productos']);
+      this.router.navigate(['/temas']);
     }).catch(err => alert('la contraseña es incorrecta o el usuario no existe'));
   }
   async presentToast() {
