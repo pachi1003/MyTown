@@ -76,7 +76,7 @@ export class RegistrarPage implements OnInit {
     }
     this.auth.register(this.email, this.password, this.name, this.date, this.ayuntamiento, this.ayuntamientoId).then( auth => {
       this.presentToast();
-      this.router.navigate(['/productos']);
+      this.router.navigate(['/temas']);
       console.log(auth);
     }).catch(err => console.log(err));
   }
