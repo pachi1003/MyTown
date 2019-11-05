@@ -14,7 +14,6 @@ export class ListPage implements OnInit {
   ngOnInit() {
     this.servicioAyuntamiento.getTowns().subscribe( ayuntamientos => {
       this.municipios = ayuntamientos;
-      console.log(ayuntamientos);
     });
   }
   // add back when alpha.4 is out

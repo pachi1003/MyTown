@@ -17,7 +17,13 @@ export class UsuarioService {
   constructor(private db: AngularFirestore) {
   }
   getUsers() {
-    return this.db.collection('users').snapshotChanges();
+    return this.db.collection('users').snapshotChanges().pipe(map(user => {
+      return user.map(a => {
+        const data: Usuario = a.payload.doc.data() as Usuario;
+        data.uid = a.payload.doc.id;
+        return data;
+      });
+    }));
     /*return this.db.collection('usuarios').snapshotChanges().pipe(map(usuario => {
       return usuario.map(a => {
         const data: Usuario = a.payload.doc.data() as Usuario;
@@ -25,20 +31,5 @@ export class UsuarioService {
         return data;
       });
     }));*/
-  }
-  getChatRoom( userId: string){
-    return this.db.collection('users').doc(userId).valueChanges();
-  }
-  getUserTown(userId: string) {
-    return this.db.collection('usuarios').snapshotChanges().pipe(map(usuario => {
-      console.log(usuario);
-      return usuario.map(a => {
-        console.log(a);
-        const data: Usuario = a.payload.doc.data() as Usuario;
-        console.log(data);
-        data.uid = a.payload.doc.id;
-        return data;
-      });
-    }));
   }
 }

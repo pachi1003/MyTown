@@ -12,15 +12,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFirestore, FirestoreSettingsToken} from '@angular/fire/firestore';
+import {OpenTemaPage} from './open-tema/open-tema.page';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, OpenTemaPage],
+  entryComponents: [OpenTemaPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule
@@ -29,7 +32,8 @@ import {AngularFirestore} from '@angular/fire/firestore';
     StatusBar,
     SplashScreen,
     AngularFirestore,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: FirestoreSettingsToken, useValue: {}}
   ],
   bootstrap: [AppComponent]
 })
