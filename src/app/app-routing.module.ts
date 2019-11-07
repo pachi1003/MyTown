@@ -23,7 +23,10 @@ const routes: Routes = [
   { path: 'registrar', loadChildren: './registrar/registrar.module#RegistrarPageModule', canActivate: [NologinGuard] },
   { path: 'temas', loadChildren: './temas/temas.module#TemasPageModule' },
   { path: 'temas/:id', loadChildren: './temas/temas.module#TemasPageModule' },
-  { path: 'open-tema', loadChildren: './open-tema/open-tema.module#OpenTemaPageModule' }
+  { path: 'open-tema', loadChildren: './open-tema/open-tema.module#OpenTemaPageModule' },
+  { path: 'create-tema', loadChildren: './create-tema/create-tema.module#CreateTemaPageModule' },  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' }
+
+
 
 
 

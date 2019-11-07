@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" fill="clear" (click)="closeChat()">
+      <ion-icon style=" color: #383a3e; font-size: 25px" name="arrow-round-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formulario" padding>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input formControlName="titulo"
+                   type="text"
+                   name="titulo"
+                   pattern=".{5,}"
+                   [(ngModel)]="titulo"
+                   required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-textarea formControlName="descripcion"
+                   type="text"
+                   name="descripcion"
+                   pattern=".{10,}"
+                   [(ngModel)]="descripcion"
+                   required></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button color="primary" expand="block" (click)="createTema()" [disabled]="formulario.invalid">Publicar</ion-button>
+  </form>
+</ion-content>
