@@ -14,19 +14,21 @@ import { AngularFireModule } from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestore, FirestoreSettingsToken} from '@angular/fire/firestore';
 import {OpenTemaPage} from './open-tema/open-tema.page';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CreateTemaPage} from './create-tema/create-tema.page';
 
 
 @NgModule({
-  declarations: [AppComponent, OpenTemaPage],
-  entryComponents: [OpenTemaPage],
+  declarations: [AppComponent, OpenTemaPage, CreateTemaPage],
+  entryComponents: [OpenTemaPage, CreateTemaPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

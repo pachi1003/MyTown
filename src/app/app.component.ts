@@ -26,11 +26,6 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'pruebas',
-      url: '/prueba',
-      icon: 'code-working'
-    },
-    {
       title: 'productos',
       url: '/productos',
       icon: 'cart'

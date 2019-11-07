@@ -17,7 +17,7 @@ export class AyuntamientosService {
 
 
   getTowns() {
-    return this.db.collection('ayuntamientos').snapshotChanges().pipe(map(ayuntamiento => {
+    return this.db.collection('ayuntamientos', ref => ref.orderBy('nombre')).snapshotChanges().pipe(map(ayuntamiento => {
       return ayuntamiento.map(a => {
         const data: Ayuntamiento = a.payload.doc.data() as Ayuntamiento;
         data.id = a.payload.doc.id;

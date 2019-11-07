@@ -18,11 +18,13 @@
 
 
   <div *ngIf="chat">
-    <ion-card *ngFor="let mensaje of chat.comentarios.slice().reverse()">
-      <ion-card-content>
-        {{mensaje.mensaje}}
-      </ion-card-content>
-    </ion-card>
+    <div *ngIf="chat.comentarios">
+      <ion-card *ngFor="let mensaje of chat.comentarios.slice().reverse()">
+        <ion-card-content>
+          {{mensaje.mensaje}}
+        </ion-card-content>
+      </ion-card>
+    </div>
   </div>
 </ion-content>
 
